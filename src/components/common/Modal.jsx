@@ -3,15 +3,17 @@ function Modal({ isOpen, onClose, title, children }) {
 
   return (
     <div
-      className="fixed inset-0 z-30 flex items-center justify-center bg-black/40 px-4"
+      className="fixed inset-0 z-30 flex items-center justify-center bg-black/40 px-4 py-8"
       onClick={onClose}
     >
       <div
-        className="w-full max-w-md rounded-xl bg-white p-6 shadow-lg"
+        className="flex max-h-full w-full max-w-md flex-col rounded-xl bg-white shadow-lg"
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="text-lg font-semibold text-gray-900">{title}</h2>
-        <div className="mt-4">{children}</div>
+        <div className="shrink-0 border-b border-gray-100 px-6 py-4">
+          <h2 className="text-lg font-semibold text-gray-900">{title}</h2>
+        </div>
+        <div className="overflow-y-auto px-6 py-4">{children}</div>
       </div>
     </div>
   )
